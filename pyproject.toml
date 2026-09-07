@@ -3,11 +3,14 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "reusable-ai-template"
+name = "neural-network-from-scratch"
 version = "0.1.0"
-description = "A reusable Python project template for AI engineering projects"
+description = "A NumPy neural network built from scratch for handwritten-digit classification"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "numpy>=1.26",
+    "matplotlib>=3.8",
+]
 
 [project.optional-dependencies]
 dev = [
@@ -16,8 +19,17 @@ dev = [
     "pre-commit",
 ]
 
+app = [
+    "streamlit",
+    "pillow",
+]
+
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 88
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]

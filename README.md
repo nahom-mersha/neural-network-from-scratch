@@ -1,53 +1,78 @@
-# Reusable AI Template
+# Neural Network From Scratch for Handwritten Digits
 
-A reusable Python project template for future AI engineering and machine-learning projects.
+An educational NumPy neural network built from scratch for handwritten-digit classification.
 
-It provides a clean starting point with testing, linting, logging, configuration, GitHub Actions, and Docker already configured.
+The project begins by distinguishing handwritten digits `1` and `2`, then expands to all ten MNIST classes. The implementation focuses on understanding vectorized computation, tensor shapes, forward propagation, backpropagation, and gradient-based learning without using PyTorch.
 
 ## AI-assisted learning
 
-This was an AI-assisted learning project. I directed the work, reviewed and tested the implementation, and documented the concepts I learned.
+This is an AI-assisted learning project. I directed the work, reviewed and tested the implementation, and documented the concepts I learned.
 
-## Features
+## Planned features
 
-* 📁 `src` layout
-* 🧪 `pytest`
-* ✨ Ruff (formatting & linting)
-* 📝 Logging
-* ⚙️ YAML configuration
-* 🤖 GitHub Actions (CI)
-* 🐳 Docker
+- Data preparation and inspection
+- Train, validation, and test splits
+- Image normalization and visualization
+- NumPy dense layers
+- ReLU and sigmoid activations
+- Softmax and cross-entropy loss
+- Manual forward propagation
+- Manual backpropagation
+- Mini-batch gradient descent
+- Parameter initialization
+- Analytical versus numerical gradient checking
+- Architecture and hyperparameter experiments
+- Deliberate gradient-debugging exercises
+- A drawing application for handwritten-digit predictions
+
+## Engineering features
+
+- `src` package layout
+- `pytest` tests
+- Ruff formatting and linting
+- Logging
+- YAML configuration
+- GitHub Actions continuous integration
+- Docker support
 
 ## Quick Start
 
-Install:
+Install the project and development dependencies:
 
 ```bash
-pip install -e ".[dev]"
+python -m pip install -e ".[dev]"
 ```
 
-Run tests:
+Run the tests:
 
 ```bash
 pytest
 ```
 
-Build Docker image:
+Build the Docker image:
 
 ```bash
-docker build -t reusable-ai-template .
+docker build -t neural-network-from-scratch .
 ```
 
-Run Docker:
+Run the test suite in Docker:
 
 ```bash
-docker run --rm reusable-ai-template
+docker run --rm neural-network-from-scratch
 ```
 
-## Learning Notes
+## Learning focus
 
-Short summary notes covering the main concepts I learned while working on this project are available at: https://github.com/nahom-mersha/ai-notes/tree/main/Project%200%20-%20Reusable%20AI%20Project%20Template.
+Project 7 implemented automatic differentiation for scalar values. This project extends that understanding to arrays and matrices:
 
-## Purpose
+```text
+Project 7: scalar values → scalar derivatives → computational graphs
+Project 8: arrays and matrices → vectorized derivatives → neural-network training
+```
 
-This repository is **Project 0** of my AI Engineering roadmap and serves as the reusable foundation for future AI projects.
+The main goal is genuine understanding. The final code should be explainable from the data representation through the forward pass, backward pass, experiments, and user-facing prediction.
+
+## Project status
+
+This project is currently in the setup stage. Results and completed features will be added as they are implemented and verified.
+
