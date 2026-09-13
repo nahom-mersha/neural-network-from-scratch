@@ -103,3 +103,21 @@ class BinaryClassifier:
         """Return the predicted class index for each example."""
         probabilities = self.forward(inputs)
         return np.argmax(probabilities, axis=1)
+
+
+class MulticlassClassifier(BinaryClassifier):
+    """Two-layer neural network for multiclass classification."""
+
+    def __init__(
+        self,
+        input_size: int = 784,
+        hidden_size: int = 32,
+        output_size: int = 10,
+        seed: int | None = None,
+    ) -> None:
+        super().__init__(
+            input_size=input_size,
+            hidden_size=hidden_size,
+            output_size=output_size,
+            seed=seed,
+        )

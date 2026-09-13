@@ -15,10 +15,13 @@ class TrainingHistory:
 
 def one_hot(
     labels: np.ndarray,
-    number_of_classes: int = 2,
+    number_of_classes: int | None = None,
 ) -> np.ndarray:
     """Convert integer labels into one-hot vectors."""
     labels = labels.astype(int)
+
+    if number_of_classes is None:
+        number_of_classes = int(labels.max()) + 1
 
     result = np.zeros(
         (labels.shape[0], number_of_classes),
@@ -26,7 +29,6 @@ def one_hot(
     )
 
     result[np.arange(labels.shape[0]), labels] = 1.0
-
     return result
 
 
@@ -56,7 +58,11 @@ def train(
     seed: int | None = 42,
 ) -> TrainingHistory:
     """Train the model using mini-batch gradient descent."""
-    train_targets = train_labels if train_labels.ndim == 2 else one_hot(train_labels)
+    train_targets = (
+        train_labels
+        if train_labels.ndim == 2
+        else one_hot(train_labels, model.dense2.biases.shape[0])
+    )
 
     validation_targets = None
 
@@ -64,7 +70,10 @@ def train(
         validation_targets = (
             validation_labels
             if validation_labels.ndim == 2
-            else one_hot(validation_labels)
+            else one_hot(
+                validation_labels,
+                model.dense2.biases.shape[0],
+            )
         )
 
     rng = np.random.default_rng(seed)
