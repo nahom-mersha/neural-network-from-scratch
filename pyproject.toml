@@ -21,6 +21,7 @@ dev = [
 
 app = [
     "streamlit",
+    "streamlit-drawable-canvas",
     "pillow",
 ]
 
