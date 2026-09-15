@@ -53,7 +53,10 @@ def preprocess_drawing(image_data: np.ndarray) -> np.ndarray:
     """Convert a canvas drawing into one normalized MNIST-style input."""
 
     # Convert RGB channels into one grayscale image.
-    grayscale = image_data[:, :, :3].mean(axis=2)
+    grayscale = np.asarray(
+        image_data[:, :, :3].mean(axis=2),
+        dtype=np.float32,
+    )
 
     # Canvas: black digit on white background.
     # MNIST: white digit on black background.
