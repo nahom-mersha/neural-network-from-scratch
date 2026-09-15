@@ -1,0 +1,4 @@
+-e .
+streamlit
+streamlit-drawable-canvas
+pillow
