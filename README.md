@@ -8,6 +8,12 @@ expands to all ten MNIST classes. It focuses on vectorized computation, tensor
 shapes, forward propagation, backpropagation, and gradient-based learning
 without using PyTorch.
 
+## Live demo
+
+Try the deployed Streamlit application:
+
+[Open the Handwritten Digit Classifier](https://neural-network-from-scratch-nahom.streamlit.app/)
+
 ## Project status
 
 Complete.
